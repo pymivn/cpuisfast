@@ -82,7 +82,7 @@ data = {
         'python_version': py_ver,
         }
 
-URL = 'http://cpu.pymi.vn/cpudata'
+URL = 'https://cpu.pymi.vn/cpudata'
 
 params = json.dumps(data).encode('utf8')
 # CloudFlare blocks Python-urllib user-agent, fake it
