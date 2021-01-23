@@ -16,7 +16,9 @@ except ImportError:
     import urllib2 as urll
 
 
-OPENBSD_CPU_SAMPLE_LINE = "cpu0: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz, 15430.67 MHz, 06-8e-0c"
+OPENBSD_CPU_SAMPLE_LINE = (
+    "cpu0: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz, 15430.67 MHz, 06-8e-0c"
+)
 OPENBSD_CPU_SAMPLE_MODEL = "Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz"
 GITHUB_ISSUE = "https://github.com/pymivn/cpuisfast/issues/new"
 
@@ -47,14 +49,18 @@ def get_processor_name():
                 if "model name" in line:
                     return re.sub(".*model name.*:", "", line, 1)
     elif "bsd" in plf.system().lower():
+
         def parse_openbsd_cpu(line):
             m = re.match("^cpu[0-9]+:", line, re.IGNORECASE)
             if m is None:
                 return m
 
             return line.replace(m.group(), "").strip().split(",")[0]
-        assert parse_openbsd_cpu(OPENBSD_CPU_SAMPLE_LINE) == OPENBSD_CPU_SAMPLE_MODEL
 
+        assert (
+            parse_openbsd_cpu(OPENBSD_CPU_SAMPLE_LINE)
+            == OPENBSD_CPU_SAMPLE_MODEL
+        )
 
         try:
             with open("/var/run/dmesg.boot") as f:
