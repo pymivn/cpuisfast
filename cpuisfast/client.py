@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-# Copy from https://raw.githubusercontent.com/pymivn/cpuisfast/master/cpuisfast/client.py
+# Copy from
+# https://raw.githubusercontent.com/pymivn/cpuisfast/master/cpuisfast/client.py
 # Change should do in that repo instead and copy here afterward
 
 import json
