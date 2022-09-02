@@ -1,6 +1,8 @@
-all: build
+all: build dev
 
 build:
-	npx tailwindcss -i style.css -o ./dist/output.css
+	npx tailwindcss -i style.css -o ./dist/style.css
 	python3 main.py
-	xdg-open index.html
+
+dev:
+	xdg-open dist/index.html

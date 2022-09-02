@@ -9,7 +9,7 @@
                              lap trinh, hoc lap trinh, học python, học lập trình python, tài liêu python, học lập trình,
                              hoc django, học django, tai lieu django, pyjobs, pyfml, python viet nam, python vietnam, pymi" />
         <meta name="author" content="http://pymi.vn" />
-        <link rel="stylesheet" href="dist/output.css">
+        <link rel="stylesheet" href="style.css">
 <script>
     // TODO dark mode
 </script>
@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        <main class="container mx-auto px-4 py-8">
+        <main class="container mx-auto px-4 py-8 space-y-6">
             <nav class="navigation bg-slate-50 text-red-300 text-xl font-bold shadow-lg"><section class="container">
                     <a href="https://pymi.vn" class="underline decoration-red-200">PyMI.vn</a>
                 </section></nav>
@@ -26,8 +26,8 @@
                 <div id="app">
                     <h1 class="text-3xl text-center font-bold text-sky-500">{{ title }}</h1>
                     <h2>{{ subtitle }}</h2>
-                    <a href="https://github.com/pymivn/cpuisfast/fork">Fork repo trên github,
-                    chạy <code>python3 cpu.py</code> rồi tạo Pull Request để gửi kết quả của bạn.
+                    <a href="https://github.com/pymivn/cpuisfast/fork" class="underline decoration-sky-700">Fork repo trên github</a>
+                    chạy <code>python3 client.py</code> rồi tạo Pull Request để gửi kết quả của bạn.
 
                     <table class="border-collapse border border-slate-500 table-auto bg-slate-100">
                         <thead class="text-orange-500">
@@ -42,21 +42,19 @@
                                 <th class="border border-slate-600">Phiên bản</th>
                                 <th class="border border-slate-600">When</th>
                             </tr>
-                            <tbody>
-
+                        </thead>
 
                         <tbody>
-
                         <tr v-for="(cpu, index) in cpus">
-                            <td class="border border-pink-200">{{ index+1 }}</th>
-                            <td class="border border-pink-200">{{ cpu.model }}</th>
-                            <td class="border border-pink-200">{{ cpu.loop_per_second }}</th>
-                            <td class="border border-pink-200">{{ cpu.add_per_second }}</th>
-                            <td class="border border-pink-200">{{ cpu.system}}</th>
-                            <td class="border border-pink-200">{{ cpu.arch }}</th>
-                            <td class="border border-pink-200">{{ cpu.python_implementation }}</th>
-                            <td class="border border-pink-200">{{ cpu.python_version }}</th>
-                            <td class="border border-pink-200">{{ new Date(cpu.inserted_at).toLocaleDateString() }}</th>
+                            <td class="border border-slate-300">{{ index+1 }}</th>
+                            <td class="border border-slate-300">{{ cpu.model }}</th>
+                            <td class="border border-slate-300">{{ cpu.loop_per_second }}</th>
+                            <td class="border border-slate-300">{{ cpu.add_per_second }}</th>
+                            <td class="border border-slate-300">{{ cpu.system}}</th>
+                            <td class="border border-slate-300">{{ cpu.arch }}</th>
+                            <td class="border border-slate-300">{{ cpu.python_implementation }}</th>
+                            <td class="border border-slate-300">{{ cpu.python_version }}</th>
+                            <td class="border border-slate-300">{{ new Date(cpu.inserted_at).toLocaleDateString() }}</th>
                         </tr>
                         </tbody>
 
@@ -65,7 +63,7 @@
                 </div>
 
                 <footer>
-                    <br>Đăng ký học lập trình Python tại <a href="https://pymi.vn">PyMivn</a>
+                    <br>Đăng ký học lập trình Python tại <a href="https://pymi.vn" class="underline">PyMivn</a>
                     <br>Học lập trình Python chất lượng số 1 Việt Nam © 2022.
                     <br>Tự học thì <a href="http://pymi.vn/tutorial/">bấm vào đây nhé ;)</a><br>
                 </footer>

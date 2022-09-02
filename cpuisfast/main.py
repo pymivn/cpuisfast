@@ -19,7 +19,7 @@ with open("data.csv") as f:
     cpus = list(dr)
     print(len(cpus))
 
-with open("template.html") as tpl, open("index.html", "wt") as out:
+with open("template.html") as tpl, open("dist/index.html", "wt") as out:
     template = tpl.read()
     rendered = template % (json.dumps(cpus),)
     out.write(rendered)
