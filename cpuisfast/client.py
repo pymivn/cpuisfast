@@ -1,20 +1,11 @@
 #!/usr/bin/env python
-# Copy from
-# https://raw.githubusercontent.com/pymivn/cpuisfast/master/cpuisfast/client.py
-# Change should do in that repo instead and copy here afterward
 
-import json
+import csv
+import datetime
 import platform as plf
 import re
 import subprocess
 import timeit
-
-try:
-    # Py3
-    import urllib.request as urll
-except ImportError:
-    # Py2
-    import urllib2 as urll
 
 
 OPENBSD_CPU_SAMPLE_LINE = (
@@ -105,29 +96,18 @@ print("Calculating sum from 0 to %d" % ONE_MILLION)
 print("Best took %s s" % best)
 print("Your CPU can do: %d (+) operations/second" % plus_iterate_freq)
 data = {
-    "cpu": cpu_name,
+    "cpu": cpu_name.strip(),
     "empty_iterate_freq": empty_iterate_freq,
     "plus_iterate_freq": plus_iterate_freq,
     "implementation": implementation,
     "arch": arch,
     "system": system,
     "python_version": py_ver,
+    "inserted_at": datetime.datetime.now().isoformat().replace('T', ' '),
 }
 
-URL = "https://cpu.pymi.vn/cpudata"
+with open("data.csv", 'at') as f:
+    writer = csv.writer(f)
+    writer.writerow(data.values())
 
-params = json.dumps(data).encode("utf8")
-# CloudFlare blocks Python-urllib user-agent, fake it
-headers = {
-    "content-type": "application/json",
-    "User-Agent": "python-requests/2.18.1",
-}
-req = urll.Request(URL, data=params, headers=headers)
-try:
-    response = urll.urlopen(req)
-except Exception as e:
-    print("Please copy output and report at: %s" % GITHUB_ISSUE)
-    raise e
-else:
-    print(response.read())
-    print("DONE, visit https://cpu.pymi.vn/ to see result")
+print("Done, please push then open new Pull Request to submit your result.")
