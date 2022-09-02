@@ -1,0 +1,102 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Python chậm hơn ... chậm là bao nhiêu? — PyMI.vn</title>
+        <meta name="description" content="Đo tốc độ CPU, máy tính của bạn làm được bao nhiêu phép tính mỗi giây? - học lập trình Python căn bản và nâng cao - đào tạo học viên từ không biết gì thành lập trình viên chuyên nghiệp." />
+        <meta name="keywords" content="python, hoc python, hoc lap trinh python, hoc lap trinh, tai liey python, lap trinh python,
+                             lap trinh, hoc lap trinh, học python, học lập trình python, tài liêu python, học lập trình,
+                             hoc django, học django, tai lieu django, pyjobs, pyfml, python viet nam, python vietnam, pymi" />
+        <meta name="author" content="http://pymi.vn" />
+        <!--
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+        -->
+        <link rel="stylesheet" href="dist/output.css">
+<script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark')
+} else {
+  document.documentElement.classList.remove('dark')
+}
+
+localStorage.removeItem('theme')
+</script>
+
+        <script src="https://unpkg.com/vue@3"></script>
+    </head>
+
+    <body>
+        <main class="container mx-auto px-4 py-8">
+            <nav class="navigation bg-slate-50 text-red-300 text-xl font-bold shadow-lg"><section class="container">
+                    <a href="https://pymi.vn" class="underline decoration-red-200">PyMI.vn</a>
+                </section></nav>
+
+                <div id="app">
+                    <h1 class="text-3xl text-center font-bold text-sky-500">{{ title }}</h1>
+                    <h2>{{ subtitle }}</h2>
+                    Copy nội dung <a href="https://github.com/pymivn/cpuisfast/blob/master/cpuisfast/client.py">này</a>
+                    vào file cpu.py, chạy <code>python3 cpu.py</code> để gửi kết quả của bạn.
+
+                    Run this script to send your result.
+
+                    <table class="border-collapse border border-slate-500 table-auto bg-slate-100">
+                        <thead class="text-orange-500">
+                            <tr>
+                                <th class="border border-slate-600">#</th>
+                                <th class="border border-slate-600">CPU model</th>
+                                <th class="border border-slate-600">Số vòng lặp mỗi giây</th>
+                                <th class="border border-slate-600">Số phép + tính được mỗi giây</th>
+                                <th class="border border-slate-600">System</th>
+                                <th class="border border-slate-600">Kiến trúc</th>
+                                <th class="border border-slate-600">Bản</th>
+                                <th class="border border-slate-600">Phiên bản</th>
+                                <th class="border border-slate-600">When</th>
+                            </tr>
+                            <tbody>
+
+
+                        <tbody>
+
+                        <tr v-for="(cpu, index) in cpus">
+                            <td class="border border-pink-200">{{ index+1 }}</th>
+                            <td class="border border-pink-200">{{ cpu.model }}</th>
+                            <td class="border border-pink-200">{{ cpu.loop_per_second }}</th>
+                            <td class="border border-pink-200">{{ cpu.add_per_second }}</th>
+                            <td class="border border-pink-200">{{ cpu.system}}</th>
+                            <td class="border border-pink-200">{{ cpu.arch }}</th>
+                            <td class="border border-pink-200">{{ cpu.python_implementation }}</th>
+                            <td class="border border-pink-200">{{ cpu.python_version }}</th>
+                            <td class="border border-pink-200">{{ new Date(cpu.inserted_at).toLocaleDateString() }}</th>
+                        </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <footer>
+                    <br>Đăng ký học lập trình Python tại <a href="https://pymi.vn">PyMivn</a>
+                    <br>Học lập trình Python chất lượng số 1 Việt Nam © 2022.
+                    <br>Tự học thì <a href="http://pymi.vn/tutorial/">bấm vào đây nhé ;)</a><br>
+                </footer>
+
+                <script>
+                    const { createApp } = Vue
+                    createApp({
+                        data() {
+                            return {
+                                title: 'Máy tính của bạn nhanh thế nào? - cpu.PyMI.vn',
+                                subtitle: 'How fast is your CPU with Python - cpu.PyMI.vn',
+                                cpus: %s.sort((d1, d2) => {new Date(d1) - new Date(d2)}).reverse(),
+                            }
+                        }
+                    }).mount('#app')
+                </script>
+
+        </main>
+    </body>
+</html>
