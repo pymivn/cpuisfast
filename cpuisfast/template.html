@@ -48,13 +48,13 @@
                         <tr v-for="(cpu, index) in cpus">
                             <td class="border border-slate-300">{{ index+1 }}</th>
                             <td class="border border-slate-300">{{ cpu.model }}</th>
-                            <td class="border border-slate-300">{{ cpu.loop_per_second }}</th>
-                            <td class="border border-slate-300">{{ cpu.add_per_second }}</th>
+                            <td class="border border-slate-300 text-right">{{ Math.round(cpu.loop_per_second).toLocaleString() }}</th>
+                            <td class="border border-slate-300 text-right">{{ Math.round(cpu.add_per_second).toLocaleString() }}</th>
                             <td class="border border-slate-300">{{ cpu.system}}</th>
                             <td class="border border-slate-300">{{ cpu.arch }}</th>
                             <td class="border border-slate-300">{{ cpu.python_implementation }}</th>
                             <td class="border border-slate-300">{{ cpu.python_version }}</th>
-                            <td class="border border-slate-300">{{ new Date(cpu.inserted_at).toLocaleDateString() }}</th>
+                            <td class="border border-slate-300 text-right">{{ new Date(cpu.inserted_at).toLocaleDateString() }}</th>
                         </tr>
                         </tbody>
 
