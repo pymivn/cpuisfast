@@ -106,7 +106,7 @@ data = {
     "inserted_at": datetime.datetime.now().isoformat().replace('T', ' '),
 }
 
-with open("data.csv", 'at') as f:
+with open("cpuisfast/data.csv", 'at') as f:
     writer = csv.writer(f)
     writer.writerow(data.values())
 
