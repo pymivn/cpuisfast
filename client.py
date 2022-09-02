@@ -99,9 +99,9 @@ data = {
     "cpu": cpu_name.strip(),
     "empty_iterate_freq": empty_iterate_freq,
     "plus_iterate_freq": plus_iterate_freq,
-    "implementation": implementation,
-    "arch": arch,
     "system": system,
+    "arch": arch,
+    "implementation": implementation,
     "python_version": py_ver,
     "inserted_at": datetime.datetime.now().isoformat().replace('T', ' '),
 }
