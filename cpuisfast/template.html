@@ -9,21 +9,9 @@
                              lap trinh, hoc lap trinh, học python, học lập trình python, tài liêu python, học lập trình,
                              hoc django, học django, tai lieu django, pyjobs, pyfml, python viet nam, python vietnam, pymi" />
         <meta name="author" content="http://pymi.vn" />
-        <!--
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
-        -->
         <link rel="stylesheet" href="dist/output.css">
 <script>
-    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}
-
-localStorage.removeItem('theme')
+    // TODO dark mode
 </script>
 
         <script src="https://unpkg.com/vue@3"></script>
@@ -38,10 +26,8 @@ localStorage.removeItem('theme')
                 <div id="app">
                     <h1 class="text-3xl text-center font-bold text-sky-500">{{ title }}</h1>
                     <h2>{{ subtitle }}</h2>
-                    Copy nội dung <a href="https://github.com/pymivn/cpuisfast/blob/master/cpuisfast/client.py">này</a>
-                    vào file cpu.py, chạy <code>python3 cpu.py</code> để gửi kết quả của bạn.
-
-                    Run this script to send your result.
+                    <a href="https://github.com/pymivn/cpuisfast/fork">Fork repo trên github,
+                    chạy <code>python3 cpu.py</code> rồi tạo Pull Request để gửi kết quả của bạn.
 
                     <table class="border-collapse border border-slate-500 table-auto bg-slate-100">
                         <thead class="text-orange-500">
