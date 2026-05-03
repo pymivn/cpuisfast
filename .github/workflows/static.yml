@@ -34,7 +34,10 @@ jobs:
         with:
           node-version: 16
       - name: Build site
-        run: cd cpuisfast; make build
+        run: |
+          cd cpuisfast
+          npm ci            # This installs your packages based on package-lock.json
+          make build        # Now npx will find tailwindcss
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
