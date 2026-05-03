@@ -37,7 +37,7 @@ jobs:
         run: cd cpuisfast; make build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v7
         with:
           # Upload entire repository
           path: 'cpuisfast/dist/'
