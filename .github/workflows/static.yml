@@ -40,11 +40,10 @@ jobs:
           make build        # Now npx will find tailwindcss
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-pages-artifact@v3        
         with:
           # Upload entire repository
           path: 'cpuisfast/dist/'
-          name:: github-pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
