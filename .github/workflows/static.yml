@@ -29,8 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: 16
       - name: Build site
@@ -43,4 +43,4 @@ jobs:
           path: 'cpuisfast/dist/'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
